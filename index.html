@@ -11,7 +11,13 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="assets.style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
     <header class="title">
@@ -21,17 +27,12 @@
       <div class="row">
         <div class="col-4 bg-light p-2 border">
           <h3>Search for a City:</h3>
-          <input type="text" placeholder="search your city" />
+          <input type="text" id="city" placeholder="search your city" />
           <button class="searchBtn" id="search-button">Search</button>
         </div>
-        <div class="col-8 bg-light">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
-          vero, esse sapiente corrupti iste dolores, doloribus modi magnam,
-          voluptates blanditiis dignissimos pariatur porro. Quos quibusdam vel,
-          qui officiis aliquam cumque.
-        </div>
+        <div class="col-8 bg-light" id="today"></div>
       </div>
     </div>
-    <script src="assets.script.js"></script>
+    <script src="./assets/script.js"></script>
   </body>
 </html>
