@@ -121,11 +121,11 @@ function forecastWeather(cityName, data) {
     var dateTag = document.createElement("p");
     dateTag.textContent = formatDate(day);
 
-    var picTag = dailyData.weather[0].icon;
-    var picTag = document.createElement("img");
+    var picIcon = dailyData.weather[0].icon; // "w0"
+    var picTag = document.createElement("img"); // <img />
     picTag.setAttribute(
       "src",
-      "https://openweathermap.org/img/w/" + picTag + ".png"
+      "https://openweathermap.org/img/w/" + picIcon + ".png"
     );
 
     var tempTag = document.createElement("p");
@@ -192,5 +192,3 @@ function search() {
 }
 
 searchBtn.addEventListener("click", search);
-
-onCitySelect("New York");
