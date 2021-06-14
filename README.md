@@ -8,6 +8,8 @@ HTML
 CSS
 JAVASCRIPT
 
-## Preview
+## Preview:
+<img width="1302" alt="Weather Preview" src="https://user-images.githubusercontent.com/82979870/121963790-783ee480-cd1f-11eb-8228-0d351193da6a.png">
+
 
 ## For Detail Information, Please Check :
