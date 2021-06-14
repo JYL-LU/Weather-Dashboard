@@ -25,12 +25,22 @@ function Weather(cityName) {
       console.log(data);
 
       var currentDate = new Date();
-      console.log(currentDate);
-      var day = currentDate.getDate();
-      var month = currentDate.getMonth();
-      var year = currentDate.getFullYear();
-      //nameEl.innerHTML =
-      // response.data.name + "(" + month + "/" + day + "/" + year + ")";
+      //console.log(currentDate);
+      var daytag =
+        currentDate.getFullYear() +
+        "-" +
+        (currentDate.getMonth() + 1) +
+        "-" +
+        currentDate.getDate();
+      document.getElementById("today").innerHTML = daytag;
+      //console.log(daytag);
+
+      var weatherPic = data.weather[0].icon;
+      var currentPic = document.getElementById("currentPic");
+      currentPic.setAttribute(
+        "src",
+        "https://openweathermap.org/img/w/" + weatherPic + ".png"
+      );
 
       var cityName = data.name;
       var nametag = document.createElement("p");
@@ -38,17 +48,20 @@ function Weather(cityName) {
 
       var tempt = data.main.temp;
       var temptag = document.createElement("p");
-      temptag.textContent = tempt;
+      temptag.textContent = "Temperature: " + tempt + " ºF";
 
       var humidity = data.main.humidity;
       var humiditytag = document.createElement("p");
-      humiditytag.textContent = humidity;
+      humiditytag.textContent = "Humidity: " + humidity + "%";
 
-      var windSpeed = data.wind;
+      var windSpeed = data.wind.speed;
       var windtag = document.createElement("p");
-      windtag.textContent = windSpeed;
+      windtag.textContent = "Wind Speed: " + windSpeed + " MPH";
 
-      todayWeather.append(nametag, temptag, humiditytag, windtag);
+      //console.log(daytag, nametag, temptag, humiditytag, windtag);
+      //console.log(todayWeather);
+      //console.log(currentPic);
+      todayWeather.append(nametag, currentPic, temptag, humiditytag, windtag);
     })
 
     .then(function (forcastResponse) {
