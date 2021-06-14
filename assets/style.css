@@ -1,0 +1,11 @@
+#forecastContainer {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#forecastContainer > .dayBox {
+  border: 1px solid red;
+  width: 20%;
+}
