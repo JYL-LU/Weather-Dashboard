@@ -66,8 +66,12 @@ function displayWeather(cityName, data) {
     "https://openweathermap.org/img/w/" + weatherPic + ".png"
   );
 
-  var nametag = document.createElement("p");
+  var nametag = document.createElement("div");
   nametag.textContent = cityName;
+  nametag.classList = "city-title";
+
+  var dayTag = document.createElement("div");
+  dayTag.className = "dayBox";
 
   var tempt = data.current.temp;
   var temptag = document.createElement("p");
@@ -103,6 +107,10 @@ function forecastWeather(cityName, data) {
   var forecastTag = document.createElement("div");
   forecastTag.id = "forecastContainer";
 
+  var forecastTitle = document.createElement("div");
+  forecastTitle.textContent = "5-Day-Forecast: ";
+  forecastTitle.classList = "forecast-title";
+
   for (let i = 0; i < 5; i++) {
     let dailyData = data.daily[i];
 
@@ -113,11 +121,18 @@ function forecastWeather(cityName, data) {
     var dateTag = document.createElement("p");
     dateTag.textContent = formatDate(day);
 
+    var picTag = dailyData.weather[0].icon;
+    var picTag = document.createElement("img");
+    picTag.setAttribute(
+      "src",
+      "https://openweathermap.org/img/w/" + picTag + ".png"
+    );
+
     var tempTag = document.createElement("p");
     tempTag.textContent = "Temp: " + dailyData.temp.day + " ºF";
 
     var humTag = document.createElement("p");
-    humTag.textContent = "Hum: " + dailyData.humidity + "%";
+    humTag.textContent = "Humi: " + dailyData.humidity + "%";
 
     var windTag = document.createElement("p");
     windTag.textContent = "Wind: " + dailyData.wind_speed + " MPH";
@@ -125,10 +140,10 @@ function forecastWeather(cityName, data) {
     var uviTag = document.createElement("p");
     uviTag.textContent = "UVI: " + dailyData.uvi;
 
-    dayTag.append(dateTag, tempTag, humTag, windTag, uviTag);
+    dayTag.append(dateTag, picTag, tempTag, humTag, windTag, uviTag);
     forecastTag.appendChild(dayTag);
   }
-  todayAndForecastWeather.append(forecastTag);
+  todayAndForecastWeather.append(forecastTitle, forecastTag);
 }
 
 function showWeather(cityName) {
@@ -145,14 +160,16 @@ function showHistoryList() {
     container.removeChild(container.firstChild);
   }
   for (let city of lastSearches) {
-    let div = document.createElement("div");
+    let button = document.createElement("button");
     let link = document.createElement("a");
     link.href = "#";
     link.textContent = city;
+    button.classList = "cityHistory";
+
     //()=> shedule this function
     link.addEventListener("click", () => showWeather(city));
-    div.appendChild(link);
-    container.appendChild(div);
+    button.appendChild(link);
+    container.appendChild(button);
   }
 }
 
@@ -176,4 +193,4 @@ function search() {
 
 searchBtn.addEventListener("click", search);
 
-showWeather("New York");
+onCitySelect("New York");

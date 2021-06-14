@@ -25,13 +25,19 @@
     </header>
     <div class="container">
       <div class="row">
-        <div class="col-4 bg-light p-2 border">
-          <h3>Search for a City:</h3>
-          <input type="text" id="city" placeholder="search your city" />
-          <button class="searchBtn" id="search-button">Search</button>
+        <div class="col-3 bg-light p-2 border">
+          <div class="search-bar">
+            <h3>Search for a City</h3>
+            <input type="text" id="city" placeholder=" search your city" />
+            <button class="searchBtn" id="search-button">Search</button>
+          </div>
+
           <div id="historyList"></div>
         </div>
-        <div class="col-8 bg-light" id="todayAndForecast"></div>
+        <div class="col-9 bg-light" id="todayAndForecast">
+          <div class="city-title"></div>
+          <div class="forecastTitle"></div>
+        </div>
       </div>
     </div>
     <script src="./assets/script.js"></script>
