@@ -22,7 +22,7 @@ function getData(cityName) {
   // starting with a city name, then use the first
   // query to get long/lat and then a second query to get the data for it.
   let url =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName +
     "&appid=" +
     APIkey +
